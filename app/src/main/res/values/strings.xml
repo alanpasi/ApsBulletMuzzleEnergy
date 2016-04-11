@@ -2,4 +2,5 @@
     <string name="app_name">Bullet Muzzle Energy</string>
     <string name="lbl_BulletWeight">Mass of the Bullet (grains)</string>
     <string name="lbl_BulletVelocity">Velocity of the Bullet (ft/s)</string>
+    <string name="lbl_Result">Result</string>
 </resources>

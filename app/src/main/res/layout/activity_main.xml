@@ -11,29 +11,36 @@
     android:orientation="vertical">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="@string/lbl_BulletWeight"
-        android:id="@+id/textViewBulletWeight"
-        android:layout_gravity="center_horizontal" />
+        android:id="@+id/textViewLblBulletWeight"
+        android:layout_gravity="center_horizontal"
+        android:textSize="20sp"
+        android:gravity="center_horizontal" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
         android:ems="10"
         android:id="@+id/editTextBulletWeight"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"
+        android:textIsSelectable="false"
+        android:textSize="20sp"
+        android:inputType="numberDecimal" />
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="@string/lbl_BulletVelocity"
-        android:id="@+id/textViewBulletVelocity"
+        android:id="@+id/textViewLblBulletVelocity"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="30dp" />
+        android:layout_marginTop="20dp"
+        android:textSize="20sp"
+        android:gravity="center_horizontal" />
 
     <EditText
         android:layout_width="match_parent"
@@ -41,22 +48,28 @@
         android:inputType="numberDecimal"
         android:ems="10"
         android:id="@+id/editText2"
-        android:layout_gravity="center_horizontal" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Large Text"
-        android:id="@+id/textView3"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="30dp" />
+        android:gravity="center_horizontal"
+        android:textIsSelectable="false"
+        android:textSize="20sp" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Large Text"
-        android:id="@+id/textView4"
-        android:layout_gravity="center_horizontal" />
+        android:text="@string/lbl_Result"
+        android:id="@+id/textViewLblResult"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:textSize="20sp"
+        android:gravity="center_horizontal" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/textViewResult"
+        android:gravity="center_horizontal"
+        android:textSize="20sp"
+        android:text="0" />
 </LinearLayout>
