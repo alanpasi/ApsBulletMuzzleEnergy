@@ -9,5 +9,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        
+        TextView textViewLabelBullet = (TextView) findViewById(R.id.textViewLblBulletWeight);
+        textViewLabelBullet.setVisibility(View.INVISIBLE);
+        
     }
 }
