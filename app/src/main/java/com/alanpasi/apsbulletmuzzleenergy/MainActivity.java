@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         // Hide labels Bullet/Velocity
         final TextView textViewLabelBullet = (TextView) findViewById(R.id.textViewLblBulletWeight);
         assert textViewLabelBullet != null;
