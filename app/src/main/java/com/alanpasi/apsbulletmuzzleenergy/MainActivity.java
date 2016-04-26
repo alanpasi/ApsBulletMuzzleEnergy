@@ -11,9 +11,9 @@ import java.text.DecimalFormat;
 
 public class MainActivity extends AppCompatActivity implements OnClickListener {
 
-    EditText editNum1;
-    EditText editNum2;
-    TextView editNum3;
+    EditText etBulletWeight;
+    EditText etBulletVelocity;
+    EditText etResult;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,9 +24,9 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
 
         energyResult.setOnClickListener(this);
 
-        editNum1 = (EditText) findViewById(R.id.editTextBulletWeight);
-        editNum2 = (EditText) findViewById(R.id.editTextBulletVelocity);
-        editNum3 = (EditText) findViewById(R.id.editTextResult);
+        etBulletWeight = (EditText) findViewById(R.id.editTextBulletWeight);
+        etBulletVelocity = (EditText) findViewById(R.id.editTextBulletVelocity);
+        etResult = (EditText) findViewById(R.id.editTextResult);
     }
 
 // Method when tap on Muzzle Energy text
@@ -34,11 +34,11 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
     @Override
     public void onClick(View v) {
 
-        double num1 = Double.parseDouble(editNum1.getText().toString());
-        double num2 = Double.parseDouble(editNum2.getText().toString());
-        double result = ((1d/2d) * (num1 * (num2 * num2))) * (1d/(7000d * 32.13d));
+        double bulletWeight = Double.parseDouble(etBulletWeight.getText().toString());
+        double bulletVelocity = Double.parseDouble(etBulletVelocity.getText().toString());
+        double muzzleEnergy = ((1d/2d) * (bulletWeight * (bulletVelocity * bulletVelocity))) * (1d/(7000d * 32.13d));
         DecimalFormat decimalFormat = new DecimalFormat("#.##");
-        editNum3.setText(decimalFormat.format(result));
+        etResult.setText(decimalFormat.format(muzzleEnergy));
 
     }
 }
