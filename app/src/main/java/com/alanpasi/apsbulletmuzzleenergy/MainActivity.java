@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
 
     EditText etBulletWeight;
     EditText etBulletVelocity;
-    EditText etResult;
+    EditText etBulletEnergy;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
 
         etBulletWeight = (EditText) findViewById(R.id.editTextBulletWeight);
         etBulletVelocity = (EditText) findViewById(R.id.editTextBulletVelocity);
-        etResult = (EditText) findViewById(R.id.editTextResult);
+        etBulletEnergy = (EditText) findViewById(R.id.editTextResult);
     }
 
 // Method when tap on Muzzle Energy text
@@ -36,9 +36,10 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
 
         double bulletWeight = Double.parseDouble(etBulletWeight.getText().toString());
         double bulletVelocity = Double.parseDouble(etBulletVelocity.getText().toString());
-        double muzzleEnergy = ((1d/2d) * (bulletWeight * (bulletVelocity * bulletVelocity))) * (1d/(7000d * 32.13d));
+        double bulletEnergy = ((1d/2d) * (bulletWeight * (bulletVelocity * bulletVelocity))) * (1d/(7000d * 32.13d));
+
         DecimalFormat decimalFormat = new DecimalFormat("#.##");
-        etResult.setText(decimalFormat.format(muzzleEnergy));
+        etBulletEnergy.setText(decimalFormat.format(bulletEnergy));
 
     }
 }
