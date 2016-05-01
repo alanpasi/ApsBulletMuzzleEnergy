@@ -15,6 +15,9 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
     EditText etBulletVelocity;
     EditText etBulletEnergy;
 
+    final double ACCELERATION_DUE_TO_GRAVITY = 7000d;
+    final double FOOT_POUND_FORCE = (1d/(ACCELERATION_DUE_TO_GRAVITY * 32.13d));
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,12 +37,15 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
     @Override
     public void onClick(View v) {
 
-        double bulletWeight = Double.parseDouble(etBulletWeight.getText().toString());
-        double bulletVelocity = Double.parseDouble(etBulletVelocity.getText().toString());
-        double bulletEnergy = ((1d/2d) * (bulletWeight * (bulletVelocity * bulletVelocity))) * (1d/(7000d * 32.13d));
 
-        DecimalFormat decimalFormat = new DecimalFormat("#.##");
-        etBulletEnergy.setText(decimalFormat.format(bulletEnergy));
+        if (etBulletWeight.getText().toString().length() > 0 && etBulletVelocity.getText().toString().length() > 0) {
+            double bulletWeight = Double.parseDouble(etBulletWeight.getText().toString());
+            double bulletVelocity = Double.parseDouble(etBulletVelocity.getText().toString());
+            double bulletEnergy = ((1d/2d) * (bulletWeight * (bulletVelocity * bulletVelocity))) * FOOT_POUND_FORCE;
+
+            DecimalFormat decimalFormat = new DecimalFormat("#.##");
+            etBulletEnergy.setText(decimalFormat.format(bulletEnergy));
+        }
 
     }
 }
