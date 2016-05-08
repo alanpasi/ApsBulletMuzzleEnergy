@@ -12,3 +12,5 @@ M is the weight of the projectile, in grains
 V is the velocity in feet per second
 
 E is the energy in foot pounds.
+
+Source: https://en.wikipedia.org/wiki/Muzzle_energy
