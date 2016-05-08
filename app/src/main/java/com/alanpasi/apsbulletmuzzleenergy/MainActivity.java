@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     TextView lblVelocity;
     TextView lblEnergy;
 
-    boolean imperialSystemSelected = false;
+    boolean imperialSystemSelected = true;
     boolean internacionalSystemSelected = false;
 
     RadioButton imperialUnitSystem;
@@ -54,14 +54,18 @@ public class MainActivity extends AppCompatActivity {
     public void SelectSystemUnit(View view) {
         switch (view.getId()) {
             case R.id.rbSistemaImperial:
-                Toast.makeText(getApplicationContext(), "Imperial", Toast.LENGTH_LONG).show();
-                lblMass.setText("Mass of the Bullet (grains)");
+//                Toast.makeText(getApplicationContext(), "Imperial", Toast.LENGTH_LONG).show();
+//                lblMass.setText(R.string.lbl_BulletWeight);
+//                lblVelocity.setText(R.string.lbl_BulletVelocity);
+//                lblEnergy.setText(R.string.lbl_Result);
                 imperialSystemSelected = true;
                 internacionalSystemSelected = false;
                 break;
             case R.id.rbSistemaInternacional:
-                Toast.makeText(getApplicationContext(), "Internacional", Toast.LENGTH_LONG).show();
-                lblMass.setText("Mass of the Bullet (grams)");
+//                Toast.makeText(getApplicationContext(), "Internacional", Toast.LENGTH_LONG).show();
+//                lblMass.setText("Mass of the Bullet (grams)");
+//                lblVelocity.setText("Velocity of the Bullet (m/s)");
+//                lblEnergy.setText("Muzzle Energy (J)");
                 internacionalSystemSelected = true;
                 imperialSystemSelected = false;
                 break;
@@ -89,6 +93,12 @@ public class MainActivity extends AppCompatActivity {
                     && etBulletVelocity.getText().toString().length() > 0
                     && imperialSystemSelected) {
                 ImperialCalculate();
+            } else {
+                if (etBulletWeight.getText().toString().length() > 0
+                        && etBulletVelocity.getText().toString().length() > 0
+                        && internacionalSystemSelected) {
+                    InternacionalCalculate();
+                }
             }
         }};
 
@@ -99,5 +109,14 @@ public class MainActivity extends AppCompatActivity {
         DecimalFormat decimalFormat = new DecimalFormat("#.##");
         etBulletEnergy.setText(decimalFormat.format(bulletEnergy));
     }
+
+    public void InternacionalCalculate() {
+        double bulletWeight = Double.parseDouble(etBulletWeight.getText().toString());
+        double bulletVelocity = Double.parseDouble(etBulletVelocity.getText().toString());
+        double bulletEnergy = ((1d/2d) * (bulletWeight * (bulletVelocity * bulletVelocity)));
+        DecimalFormat decimalFormat = new DecimalFormat("#.##");
+        etBulletEnergy.setText(decimalFormat.format(bulletEnergy));
+    }
+
 
 }
