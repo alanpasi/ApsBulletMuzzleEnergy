@@ -43,6 +43,8 @@ public class MainActivity extends AppCompatActivity {
         etBulletEnergy = (EditText) findViewById(R.id.editTextResult);
 
         lblMass = (TextView) findViewById(R.id.textViewLblBulletWeight);
+        lblVelocity = (TextView) findViewById(R.id.textViewLblBulletVelocity);
+        lblEnergy = (TextView) findViewById(R.id.textViewLblResult);
 
         etBulletWeight.addTextChangedListener(watch);
         etBulletVelocity.addTextChangedListener(watch);
@@ -55,17 +57,17 @@ public class MainActivity extends AppCompatActivity {
         switch (view.getId()) {
             case R.id.rbSistemaImperial:
 //                Toast.makeText(getApplicationContext(), "Imperial", Toast.LENGTH_LONG).show();
-//                lblMass.setText(R.string.lbl_BulletWeight);
-//                lblVelocity.setText(R.string.lbl_BulletVelocity);
-//                lblEnergy.setText(R.string.lbl_Result);
+                lblMass.setText(R.string.lbl_BulletWeight);
+                lblVelocity.setText(R.string.lbl_BulletVelocity);
+                lblEnergy.setText(R.string.lbl_Result);
                 imperialSystemSelected = true;
                 internacionalSystemSelected = false;
                 break;
             case R.id.rbSistemaInternacional:
 //                Toast.makeText(getApplicationContext(), "Internacional", Toast.LENGTH_LONG).show();
-//                lblMass.setText("Mass of the Bullet (grams)");
-//                lblVelocity.setText("Velocity of the Bullet (m/s)");
-//                lblEnergy.setText("Muzzle Energy (J)");
+                lblMass.setText(R.string.lbl_BulletWeightInternacional);
+                lblVelocity.setText(R.string.lbl_BulletVelocityInternacional);
+                lblEnergy.setText(R.string.lbl_ResultInternacional);
                 internacionalSystemSelected = true;
                 imperialSystemSelected = false;
                 break;
