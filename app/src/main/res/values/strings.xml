@@ -4,4 +4,6 @@
     <string name="lbl_BulletVelocity">Velocity of the Bullet (ft/s)</string>
     <string name="lbl_Result">Muzzle Energy (ft-lbf)</string>
     <string name="toast_message">Isto é um Toast!</string>
+    <string name="rdBtnSistemaImperial">Sistema Imperial</string>
+    <string name="rdBtnSistemaInternacional">Sistema Internacional</string>
 </resources>

@@ -17,13 +17,14 @@
         android:text="@string/lbl_BulletWeight"
         android:id="@+id/textViewLblBulletWeight"
         android:layout_gravity="center_horizontal"
-        android:textSize="20sp"
-        android:gravity="center_horizontal" />
+        android:textSize="18sp"
+        android:gravity="center_horizontal"
+        android:textStyle="bold" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
+        android:ems="5"
         android:id="@+id/editTextBulletWeight"
         android:layout_gravity="center_horizontal"
         android:gravity="center_horizontal"
@@ -39,14 +40,15 @@
         android:id="@+id/textViewLblBulletVelocity"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
-        android:textSize="20sp"
-        android:gravity="center_horizontal" />
+        android:textSize="18sp"
+        android:gravity="center_horizontal"
+        android:textStyle="bold" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="numberDecimal"
-        android:ems="10"
+        android:ems="5"
         android:id="@+id/editTextBulletVelocity"
         android:layout_gravity="center_horizontal"
         android:gravity="center_horizontal"
@@ -61,9 +63,9 @@
         android:id="@+id/textViewLblResult"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:gravity="center_horizontal"
-        />
+        android:textStyle="bold" />
 
     <EditText
         android:layout_width="match_parent"
@@ -71,5 +73,36 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:id="@+id/editTextResult"
         android:gravity="center_horizontal"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:hint="0" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:minHeight="20dp" />
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/rdBtnSistemaImperial"
+            android:id="@+id/rbSistemaImperial"
+            android:checked="true"
+            android:textSize="20sp"
+            android:onClick="SelectSystemUnit"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/rdBtnSistemaInternacional"
+            android:id="@+id/rbSistemaInternacional"
+            android:checked="false"
+            android:textSize="20sp"
+            android:onClick="SelectSystemUnit"/>
+    </RadioGroup>
 </LinearLayout>
