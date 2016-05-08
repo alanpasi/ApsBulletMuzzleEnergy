@@ -1,7 +1,7 @@
 # ApsBulletMuzzleEnergy
 Muzzle energy is the kinetic energy of a bullet as it is expelled from the muzzle of a firearm.
 
-E = (M x V²) ÷ K
+E = 1/2 x (M x V²) ÷ K
 
 where:
 
