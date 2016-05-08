@@ -6,4 +6,5 @@
     <string name="toast_message">Isto é um Toast!</string>
     <string name="rdBtnSistemaImperial">Sistema Imperial</string>
     <string name="rdBtnSistemaInternacional">Sistema Internacional</string>
+    <string name="lblMyName">By Alanpasi</string>
 </resources>

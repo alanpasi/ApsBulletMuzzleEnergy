@@ -20,6 +20,13 @@ public class MainActivity extends AppCompatActivity {
     EditText etBulletVelocity;
     EditText etBulletEnergy;
 
+    TextView lblMass;
+    TextView lblVelocity;
+    TextView lblEnergy;
+
+    boolean imperialSystemSelected = false;
+    boolean internacionalSystemSelected = false;
+
     RadioButton imperialUnitSystem;
     RadioButton internacionalUnitSystem;
 
@@ -35,6 +42,8 @@ public class MainActivity extends AppCompatActivity {
         etBulletVelocity = (EditText) findViewById(R.id.editTextBulletVelocity);
         etBulletEnergy = (EditText) findViewById(R.id.editTextResult);
 
+        lblMass = (TextView) findViewById(R.id.textViewLblBulletWeight);
+
         etBulletWeight.addTextChangedListener(watch);
         etBulletVelocity.addTextChangedListener(watch);
 
@@ -46,9 +55,15 @@ public class MainActivity extends AppCompatActivity {
         switch (view.getId()) {
             case R.id.rbSistemaImperial:
                 Toast.makeText(getApplicationContext(), "Imperial", Toast.LENGTH_LONG).show();
+                lblMass.setText("Mass of the Bullet (grains)");
+                imperialSystemSelected = true;
+                internacionalSystemSelected = false;
                 break;
             case R.id.rbSistemaInternacional:
                 Toast.makeText(getApplicationContext(), "Internacional", Toast.LENGTH_LONG).show();
+                lblMass.setText("Mass of the Bullet (grams)");
+                internacionalSystemSelected = true;
+                imperialSystemSelected = false;
                 break;
         }
     }
@@ -70,20 +85,19 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onTextChanged(CharSequence s, int a, int b, int c) {
             // TODO Auto-generated method stub
-            if (etBulletWeight.getText().toString().length() > 0 && etBulletVelocity.getText().toString().length() > 0) {
-                double bulletWeight = Double.parseDouble(etBulletWeight.getText().toString());
-                double bulletVelocity = Double.parseDouble(etBulletVelocity.getText().toString());
-                double bulletEnergy = ((1d/2d) * (bulletWeight * (bulletVelocity * bulletVelocity))) * FOOT_POUND_FORCE;
-
-                DecimalFormat decimalFormat = new DecimalFormat("#.##");
-                etBulletEnergy.setText(decimalFormat.format(bulletEnergy));
+            if (etBulletWeight.getText().toString().length() > 0
+                    && etBulletVelocity.getText().toString().length() > 0
+                    && imperialSystemSelected) {
+                ImperialCalculate();
             }
-
-//            output.setText(s);
-//            Toast.makeText(getApplicationContext(), s, Toast.LENGTH_LONG).show();
-//            if(a == 9){
-//                Toast.makeText(getApplicationContext(), "Maximum Limit Reached", Toast.LENGTH_SHORT).show();
-//            }
         }};
+
+    public void ImperialCalculate() {
+        double bulletWeight = Double.parseDouble(etBulletWeight.getText().toString());
+        double bulletVelocity = Double.parseDouble(etBulletVelocity.getText().toString());
+        double bulletEnergy = ((1d/2d) * (bulletWeight * (bulletVelocity * bulletVelocity))) * FOOT_POUND_FORCE;
+        DecimalFormat decimalFormat = new DecimalFormat("#.##");
+        etBulletEnergy.setText(decimalFormat.format(bulletEnergy));
+    }
 
 }
