@@ -25,10 +25,10 @@ public class MainActivity extends AppCompatActivity {
     TextView lblEnergy;
 
     boolean imperialSystemSelected = true;
-    boolean internacionalSystemSelected = false;
+    boolean internationalSystemSelected = false;
 
     RadioButton imperialUnitSystem;
-    RadioButton internacionalUnitSystem;
+    RadioButton internationalUnitSystem;
 
     double ACCELERATION_DUE_TO_GRAVITY = 7000d;
     double FOOT_POUND_FORCE = (1d/(ACCELERATION_DUE_TO_GRAVITY * 32.13d));
@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         etBulletVelocity.addTextChangedListener(watch);
 
         imperialUnitSystem = (RadioButton) findViewById(R.id.rbSistemaImperial);
-        internacionalUnitSystem = (RadioButton) findViewById(R.id.rbSistemaInternacional);
+        internationalUnitSystem = (RadioButton) findViewById(R.id.rbSistemaInternational);
     }
 
     public void SelectSystemUnit(View view) {
@@ -61,14 +61,14 @@ public class MainActivity extends AppCompatActivity {
                 lblVelocity.setText(R.string.lbl_BulletVelocity);
                 lblEnergy.setText(R.string.lbl_Result);
                 imperialSystemSelected = true;
-                internacionalSystemSelected = false;
+                internationalSystemSelected = false;
                 break;
-            case R.id.rbSistemaInternacional:
-//                Toast.makeText(getApplicationContext(), "Internacional", Toast.LENGTH_LONG).show();
-                lblMass.setText(R.string.lbl_BulletWeightInternacional);
+            case R.id.rbSistemaInternational:
+//                Toast.makeText(getApplicationContext(), "International", Toast.LENGTH_LONG).show();
+                lblMass.setText(R.string.lbl_BulletWeightInternational);
                 lblVelocity.setText(R.string.lbl_BulletVelocityInternacional);
-                lblEnergy.setText(R.string.lbl_ResultInternacional);
-                internacionalSystemSelected = true;
+                lblEnergy.setText(R.string.lbl_ResultInternational);
+                internationalSystemSelected = true;
                 imperialSystemSelected = false;
                 break;
         }
@@ -98,8 +98,8 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 if (etBulletWeight.getText().toString().length() > 0
                         && etBulletVelocity.getText().toString().length() > 0
-                        && internacionalSystemSelected) {
-                    InternacionalCalculate();
+                        && internationalSystemSelected) {
+                    InternationalCalculate();
                 }
             }
         }};
@@ -108,17 +108,23 @@ public class MainActivity extends AppCompatActivity {
         double bulletWeight = Double.parseDouble(etBulletWeight.getText().toString());
         double bulletVelocity = Double.parseDouble(etBulletVelocity.getText().toString());
         double bulletEnergy = ((1d/2d) * (bulletWeight * (bulletVelocity * bulletVelocity))) * FOOT_POUND_FORCE;
-        DecimalFormat decimalFormat = new DecimalFormat("#.##");
+
+        DecimalFormat decimalFormat = new DecimalFormat("#,###.##");
         etBulletEnergy.setText(decimalFormat.format(bulletEnergy));
+
+//        etBulletWeight.setText(decimalFormat.format(bulletWeight));
+//        etBulletVelocity.setText(decimalFormat.format(bulletVelocity));
     }
 
-    public void InternacionalCalculate() {
+    public void InternationalCalculate() {
         double bulletWeight = Double.parseDouble(etBulletWeight.getText().toString());
         double bulletVelocity = Double.parseDouble(etBulletVelocity.getText().toString());
         double bulletEnergy = ((1d/2d) * (bulletWeight * (bulletVelocity * bulletVelocity)));
-        DecimalFormat decimalFormat = new DecimalFormat("#.##");
+
+        DecimalFormat decimalFormat = new DecimalFormat("#,###.##");
         etBulletEnergy.setText(decimalFormat.format(bulletEnergy));
+
+//        etBulletWeight.setText(decimalFormat.format(bulletWeight));
+//        etBulletVelocity.setText(decimalFormat.format(bulletVelocity));
     }
-
-
 }
