@@ -53,6 +53,9 @@ public class MainActivity extends AppCompatActivity {
         internationalUnitSystem = (RadioButton) findViewById(R.id.rbSistemaInternational);
     }
 
+//    http://www.nist.gov/pml/pubs/sp811/appenb8.cfm
+//    To Convert to from
+
     public void SelectSystemUnit(View view) {
         switch (view.getId()) {
             case R.id.rbSistemaImperial:
@@ -60,6 +63,21 @@ public class MainActivity extends AppCompatActivity {
                 lblMass.setText(R.string.lbl_BulletWeight);
                 lblVelocity.setText(R.string.lbl_BulletVelocity);
                 lblEnergy.setText(R.string.lbl_Result);
+
+                if (etBulletWeight.getText().toString().length() > 0
+                        && internationalSystemSelected) {
+                    double bulletWeight = Double.parseDouble(etBulletWeight.getText().toString());
+                    bulletWeight = bulletWeight / 6.479891E-05d;
+                    DecimalFormat decimalFormat = new DecimalFormat("#,###.##");
+                    etBulletWeight.setText(decimalFormat.format(bulletWeight));
+                }
+                if (etBulletVelocity.getText().toString().length() > 0
+                        && internationalSystemSelected) {
+                    double bulletVelocity = Double.parseDouble(etBulletVelocity.getText().toString());
+                    bulletVelocity = bulletVelocity / 3.048E-01d;
+                    DecimalFormat decimalFormat = new DecimalFormat("#,###.##");
+                    etBulletVelocity.setText(decimalFormat.format(bulletVelocity));
+                }
                 imperialSystemSelected = true;
                 internationalSystemSelected = false;
                 break;
@@ -68,6 +86,21 @@ public class MainActivity extends AppCompatActivity {
                 lblMass.setText(R.string.lbl_BulletWeightInternational);
                 lblVelocity.setText(R.string.lbl_BulletVelocityInternacional);
                 lblEnergy.setText(R.string.lbl_ResultInternational);
+
+                if (etBulletWeight.getText().toString().length() > 0
+                        && imperialSystemSelected) {
+                    double bulletWeight = Double.parseDouble(etBulletWeight.getText().toString());
+                    bulletWeight = bulletWeight * 6.479891E-05d;
+                    DecimalFormat decimalFormat = new DecimalFormat("#,###.####");
+                    etBulletWeight.setText(decimalFormat.format(bulletWeight));
+                }
+                if (etBulletVelocity.getText().toString().length() > 0
+                        && imperialSystemSelected) {
+                    double bulletVelocity = Double.parseDouble(etBulletVelocity.getText().toString());
+                    bulletVelocity = bulletVelocity * 3.048E-01d;
+                    DecimalFormat decimalFormat = new DecimalFormat("#,###.####");
+                    etBulletVelocity.setText(decimalFormat.format(bulletVelocity));
+                }
                 internationalSystemSelected = true;
                 imperialSystemSelected = false;
                 break;
